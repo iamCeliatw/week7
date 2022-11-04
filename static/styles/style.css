@@ -39,7 +39,7 @@ header .welcome {
   font-size: 20px;
   margin-right: 5px;
 }
-.type-page .type-place input {
+.inputArea {
   width: 280px;
   padding: 8px;
   margin: 8px 0px;

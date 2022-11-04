@@ -21,15 +21,15 @@
         <form action="/signup" method="POST">
           <div class="type-place">
             <span> 姓名 </span>
-            <input type="text" name="name" />
+            <input class="inputArea" type="text" name="name" />
           </div>
           <div class="type-place">
             <span> 帳號 </span>
-            <input type="text" name="account" />
+            <input class="inputArea" type="text" name="account" />
           </div>
           <div class="type-place">
             <span> 密碼 </span>
-            <input type="password" name="password" />
+            <input class="inputArea" type="password" name="password" />
           </div>
           <div>
             <button class="btn">註冊</button>
@@ -37,19 +37,20 @@
         </form>
       </div>
       <hr />
+
       <div class="type-page">
         <div class="title">登入系統</div>
         <form action="/signin" method="POST">
           <div class="type-place">
             <span> 帳號 </span>
-            <input type="text" name="account" />
+            <input class="inputArea" type="text" name="account" id="username" />
           </div>
           <div class="type-place">
             <span> 密碼 </span>
-            <input type="password" name="password" />
+            <input class="inputArea" type="password" name="password" />
           </div>
           <div>
-            <button class="btn">登入</button>
+            <button class="btn" id="signBtn">登入</button>
           </div>
         </form>
       </div>

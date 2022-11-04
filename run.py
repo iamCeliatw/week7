@@ -135,31 +135,16 @@ def signout():
 def api_member():
     result = request.args.get('userName')
     if request.method == 'GET':
-        sql = "SELECT id, name, username FROM member WHERE username = %s"
+        sql = "SELECT json_object('id',id, 'name', name, 'username', username) FROM member WHERE username = %s"
         val = [result]
         mycursor = mydb.cursor()
         mycursor.execute(sql, val)
         result = mycursor.fetchone()
-        if result is None or result is '':
+        if result is None or result == '':
             return jsonify({'data': None})
-        # tuple to list
-        list(result)
-        data = []
-        for row in result:
-            data.append(row)
-        # 取得key欄位 放在一個陣列裡面
-        fields_list = mycursor.description
-        mycursor.close()
-        column_list = []
-        for i in fields_list:
-            column_list.append(i[0])
-        jsondata_list = []
-            # 將原本兩個list變成dict
-        data_dict = {}
-        for i in range(len(column_list)):
-            data_dict[column_list[i]] = data[i]
-        jsondata_list.append(data_dict)
-        return jsonify({'data': jsondata_list[0]})
+        json_data = json.loads(result[0])
+        return jsonify({'data': json_data})
+
 
     if request.method == 'PATCH':
        # 取得使用者輸入的值並轉成json格式
